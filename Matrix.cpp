@@ -14,3 +14,11 @@ void Matrix::printMatrix() {
     }
 }
 
+void Matrix::set_value(int x, int y, int value) {
+    matrix[x * sideLength + y] = value;
+}
+
+int Matrix::get_value(int x, int y) {
+    return matrix[x * sideLength + y];
+}
+

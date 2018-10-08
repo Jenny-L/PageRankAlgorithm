@@ -12,6 +12,7 @@ private:
 public:
     Matrix(int input = 1) : sideLength(input), matrixSize(pow(sideLength, sideLength)), matrix(new int[matrixSize]){};
     void printMatrix();
-
+    void set_value(int x, int y, int value);
+    int get_value(int x, int y);
 };
 
