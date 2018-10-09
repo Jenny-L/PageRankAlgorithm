@@ -22,3 +22,12 @@ int Matrix::get_value(int x, int y) {
     return matrix[x * sideLength + y];
 }
 
+void Matrix::clear() {
+    for(int i = 0; i < matrixSize; i++) {
+        matrix[i] = 0;
+    }
+}
+
+Matrix* Matrix::identity(Matrix m) {
+    return new Matrix(m);
+}
