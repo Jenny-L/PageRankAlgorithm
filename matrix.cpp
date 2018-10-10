@@ -5,6 +5,7 @@
 #include "matrix.hpp"
 #include <cmath>
 #include <iostream>
+const double TOLERENCE = 0.01;
 
 using namespace std;
 
@@ -43,13 +44,9 @@ void matrix::clear() {
     }
 }
 
-matrix* matrix::identity(matrix m) {
-    return new matrixArray(m);
-}
-
 std::ostream& operator<<(std::ostream& os, const matrix& obj){
     for(int i = 0; i < obj.matrixSize; i++) {
-        if (obj.matrixSize % obj.sideLength == 0) {
+        if (obj.matrixSize % obj.sideRow == 0) {
             os << endl;
         }
         os << obj.matrixArray[i] << " ";
@@ -57,7 +54,15 @@ std::ostream& operator<<(std::ostream& os, const matrix& obj){
 }
 
 bool operator==(const matrix& m1, const matrix& m2) {
-    return (m1.matrixSize == m2.matrixSize)
+    if(m1.matrixSize != m2.matrixSize) {
+        return false;
+    }
+    for (int i = 0; i < m1.matrixSize; i++) {
+        if (!(m1.matrixArray[i] < m2.matrixArray[i] + TOLERENCE && m1.matrixArray[i] > m2.matrixArray[i] - TOLERENCE)){
+            return false;
+        }
+    }
+    return true;
 }
 
 bool operator!=(const matrix& m1, const matrix& m2) {
@@ -81,49 +86,105 @@ bool operator>=(const matrix&m1, const matrix& m2) {
 }
 
 //Prefix
-matrix& operator++(matrix& m){
-    for (int i = 0; i < m.matrixSize; i++) {
-        m.matrix[i] = m.matrix[i] + 1;
+matrix& matrix::operator++(){
+    for (int i = 0; i < this->matrixSize; i++) {
+        this->matrix[i] = this->matrix[i] + 1.0;
     }
-    return m;
+    return *this;
 }
 
 //Postfix
-matrix operator++(matrix& m, int value) {
-    matrix temp(m);
-    operator++(m);
+matrix matrix::operator++(int) {
+    matrix temp(*this);
+    operator++();
     return temp;
 }
 
-matrix& operator+=(matrix& m1, const matrix& m2) {
-    for (int i = 0; i < m1.matrixSize; i++) {
-        m1.matrix[i] = m1.matrix[i] + m2.matrix[i];
+//Prefix
+matrix& matrix::operator--(){
+    for (int i = 0; i < this->matrixSize; i++) {
+        this->matrix[i] = this->matrix[i] - 1.0;
     }
+    return *this;
+}
+
+//Postfix
+matrix matrix::operator--(int) {
+    matrix temp(*this);
+    operator--();
+    return temp;
+}
+
+
+
+matrix& matrix::operator+=(const matrix& m1) {
+    if (this->matrixSize != m1.matrixSize) {
+        throw invalid_argument("Cannot add matrices because their size are different");
+    }
+    for (int i = 0; i < m1.matrixSize; i++) {
+        this->matrix[i] = this->matrix[i] + m1.matrix[i];
+    }
+    return *this;
+}
+
+matrix operator+(matrix m1, const matrix& m2) {
+    m1 += m2;
     return m1;
 }
 
-matrix operator+(const matrix& m1, const matrix& m2) {
-    matrix m3;
-    for (int i = 0; i < m1.matrixSize; i++) {
-        m3.matrix[i] = m1.matrixArray[i] + m2.matrixArray[i];
+matrix& matrix::operator-=(const matrix& m1) {
+    if (this->matrixSize != m1.matrixSize) {
+        throw invalid_argument("Cannot subtract matrices because their size are different");
     }
-    return m3;
+    for (int i = 0; i < m1.matrixSize; i++) {
+        this->matrix[i] = this->matrix[i] - m1.matrix[i];
+    }
+    return *this;
 }
 
-matrix& operator-=(matrix& m1, const matrix& m2) {
-    for (int i = 0; i < m1.matrixSize; i++) {
-        m1.matrix[i] = m1.matrix[i] + m2.matrix[i];
-    }
+matrix operator-(matrix m1, const matrix& m2) {
+    m1 += m2;
     return m1;
 }
 
-matrix operator-(const matrix& m1) {
-    matrix m3;
-    for (int i = 0; i < this.matrixSize; i++) {
-        m3.matrix[i] = m1.matrixArray[i] + m2.matrixArray[i];
-    }
-    return m3;
+//swap and assign
+matrix& matrix::operator=(matrix &m) {
+    swap(*this, m);
+    return *this;
 }
+
+void swap(matrix &m1, matrix &m2) {
+    matrix temp;
+    temp = m1;
+    m1 = m2;
+    m2 = temp;
+}
+
+matrix& matrix::operator*=(const matrix &m1) {
+    int nRows = this->sideRow;
+    int nColumn = m1.sideColumn;
+    int commonSize = this->sideRow;
+    if (this->sideColumn != m1.sideRow ) {
+        throw invalid_argument("column length of matrix 1 does != row length of matrix 2");
+    }
+    for(int i = 0; i < nRows; i++) {
+        for(int j = 0; j < nColumn; j++) {
+            int product = 0;
+            for(int k = 0; k < commonSize; k++) {
+                product += this->get_value(i, k) * m1.get_value(k, j);
+            }
+            this->set_value(i, j, product);
+        }
+    }
+    return *this;
+}
+
+matrix operator*(matrix result, const matrix &m) {
+    result *= m;
+    return result;
+}
+
+
 
 
 

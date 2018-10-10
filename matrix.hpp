@@ -4,12 +4,14 @@
 #include <cmath>
 #include <ostream>
 
+
 using namespace std;
 
 class matrix {
 
 private:
     const int DEFAULTSIZE = 1;
+    //const double TOLERANCE = 0.01;
     int sideRow;
     int sideColumn;
     int matrixSize;
@@ -55,13 +57,16 @@ public:
     void set_value(int x, int y, double value);
     int get_value(int x, int y);
     //copy constructor
-    matrix(const matrix& m): sideColumn(m.sideColumn), sideRow(m.sideRow), matrixSize(m.sideColumn * m.sideRow), matrixArray(new int[matrixSize]){}
+    matrix(const matrix& m): sideColumn(m.sideColumn), sideRow(m.sideRow), matrixSize(m.sideColumn * m.sideRow), matrixArray(new int[matrixSize]){
+        for (int i = 0; i < m.matrixSize; i++) {
+            this->matrixArray[i] = m.matrixArray[i];
+        }
+    }
     //deconstructor
     ~matrix() {delete[] matrixArray;}
     void printmatrix();
 
     void clear();
-    matrix* identity(matrix m);
     friend std::ostream& operator<<(std::ostream& os, const matrix& obj);
     friend bool operator==(const matrix& m1, const matrix& m2);
     friend bool operator!=(const matrix& m1, const matrix& m2);
@@ -69,11 +74,18 @@ public:
     friend bool operator>(const matrix& m1, const matrix& m2);
     friend bool operator<=(const matrix& m1, const matrix& m2);
     friend bool operator>=(const matrix& m1, const matrix& m2);
-    friend matrix& operator++();
-    friend matrix operator++(int);
+    matrix& operator++();
+    matrix operator++(int);
+    matrix& operator--();
+    matrix operator--(int);
+    matrix& operator=(matrix &other);
     matrix& operator+=(const matrix& m1);
-    matrix operator+(const matrix& m);
-    friend matrix& operator-=(const matrix& m1,const matrix& m2);
-    friend matrix operator-(const matrix& m, const matrix& m1);
+    friend matrix operator+(matrix m1, const matrix& m2);
+    matrix& operator-=(const matrix& m1);
+    friend matrix operator-(matrix m1, const matrix& m2);
+    friend void swap(matrix &m1, matrix &m2);
+    matrix& operator*=(const matrix& m1);
+    friend matrix operator*(const matrix &m1, const matrix& m2);
+
 };
 
