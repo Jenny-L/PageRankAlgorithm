@@ -9,18 +9,40 @@ using namespace std;
 class matrix {
 
 private:
-    int sideLength;
+    const int DEFAULTSIZE = 1;
+    int sideRow;
+    int sideColumn;
     int matrixSize;
     int *matrixArray;
 public:
-    //constructor with default parameter
-    matrix(int input = 1) : sideLength(input), matrixSize(pow(sideLength, sideLength)), matrixArray(new int[matrixSize]) {
+    //default constructor
+    matrix() : sideRow(DEFAULTSIZE), sideColumn(DEFAULTSIZE), matrixSize(DEFAULTSIZE * DEFAULTSIZE), matrixArray(new int[matrixSize]) {
+        this->matrixArray[0] == 0.0;
+    }
+    //constructor with one parameter
+    matrix(int input) : sideRow(input), sideColumn(input), matrixSize(input * input)  {
+        if (input <= 0) {
+            throw invalid_argument("input side length is a negative integer");
+        } else {
+            matrixArray = new int[matrixSize];
+        }
+        for(int i = 0; i < matrixSize; i++) {
+            this->matrixArray[i] == 0.0;
+        }
+    }
+    //constructor with 2 parameter
+    matrix(int r, int c) : sideRow(r), sideColumn(c), matrixSize(r * c)  {
+        if (r <= 0 || c <= 0) {
+            throw invalid_argument("input r or c  is a negative integer");
+        } else {
+            matrixArray = new int[matrixSize];
+        }
         for(int i = 0; i < matrixSize; i++) {
             this->matrixArray[i] == 0.0;
         }
     }
     //copy constructor
-    matrix(const matrix& m): sideLength(m.sideLength), matrixSize(m.sideLength), matrixArray(new int[matrixSize]){}
+    matrix(const matrix& m): sideColumn(m.sideColumn), sideRow(m.sideRow), matrixSize(m.sideColumn * m.sideRow), matrixArray(new int[matrixSize]){}
     //deconstructor
     ~matrix() {delete[] matrixArray;}
     void printmatrix();
