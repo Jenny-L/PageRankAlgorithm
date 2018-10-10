@@ -41,13 +41,25 @@ public:
             this->matrixArray[i] == 0.0;
         }
     }
+    //constructor with array as parameter
+    matrix(double arrayValues[]) {
+        int arraySize = sizeof(arrayValues);
+        if (sqrt(arraySize) * sqrt(arraySize) != arraySize) {
+            throw invalid_argument("input array is not a perfect square");
+        }
+        for(int i = 0; i < arraySize; i++) {
+            this->matrixArray[i] = arrayValues[i];
+        }
+    }
+
+    void set_value(int x, int y, double value);
+    int get_value(int x, int y);
     //copy constructor
     matrix(const matrix& m): sideColumn(m.sideColumn), sideRow(m.sideRow), matrixSize(m.sideColumn * m.sideRow), matrixArray(new int[matrixSize]){}
     //deconstructor
     ~matrix() {delete[] matrixArray;}
     void printmatrix();
-    void set_value(int x, int y, int value);
-    int get_value(int x, int y);
+
     void clear();
     matrix* identity(matrix m);
     friend std::ostream& operator<<(std::ostream& os, const matrix& obj);

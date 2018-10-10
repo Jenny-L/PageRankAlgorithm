@@ -9,9 +9,25 @@
 using namespace std;
 
 
-//~matrix() {
-//    delete this;
-//}
+void matrix::set_value(int x, int y, double value) {
+    if (x >= sideRow || x < 0) {
+        throw invalid_argument("input x contains an invalid value");
+    }
+    if (y >= sideColumn || y < 0) {
+        throw invalid_argument("input y contains an invalid value");
+    }
+    matrixArray[x * sideRow + y] = value;
+}
+
+int matrix::get_value(int x, int y) {
+    if (x >= sideRow || x < 0) {
+        throw invalid_argument("input x contains an invalid value");
+    }
+    if (y >= sideColumn || y < 0) {
+        throw invalid_argument("input y contains an invalid value");
+    }
+    return matrixArray[x * sideRow + y];
+}
 
 void matrix::printmatrix() {
     for(int i = 0; i < matrixSize; i++) {
@@ -19,17 +35,11 @@ void matrix::printmatrix() {
     }
 }
 
-void matrix::set_value(int x, int y, int value) {
-    matrixArray[x * sideLength + y] = value;
-}
 
-int matrix::get_value(int x, int y) {
-    return matrixArray[x * sideLength + y];
-}
 
 void matrix::clear() {
     for(int i = 0; i < matrixSize; i++) {
-        matrixArray[i] = 0;
+        matrixArray[i] = 0.0;
     }
 }
 
