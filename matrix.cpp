@@ -8,32 +8,33 @@
 
 using namespace std;
 
-~matrix() {
-    delete matrix;
-}
+
+//~matrix() {
+//    delete this;
+//}
 
 void matrix::printmatrix() {
     for(int i = 0; i < matrixSize; i++) {
-        cout << matrix[i];
+        cout << matrixArray[i];
     }
 }
 
 void matrix::set_value(int x, int y, int value) {
-    matrix[x * sideLength + y] = value;
+    matrixArray[x * sideLength + y] = value;
 }
 
 int matrix::get_value(int x, int y) {
-    return matrix[x * sideLength + y];
+    return matrixArray[x * sideLength + y];
 }
 
 void matrix::clear() {
     for(int i = 0; i < matrixSize; i++) {
-        matrix[i] = 0;
+        matrixArray[i] = 0;
     }
 }
 
 matrix* matrix::identity(matrix m) {
-    return new matrix(m);
+    return new matrixArray(m);
 }
 
 std::ostream& operator<<(std::ostream& os, const matrix& obj){
@@ -41,7 +42,7 @@ std::ostream& operator<<(std::ostream& os, const matrix& obj){
         if (obj.matrixSize % obj.sideLength == 0) {
             os << endl;
         }
-        os << obj.matrix[i] << " ";
+        os << obj.matrixArray[i] << " ";
     }
 }
 
@@ -94,7 +95,7 @@ matrix& operator+=(matrix& m1, const matrix& m2) {
 matrix operator+(const matrix& m1, const matrix& m2) {
     matrix m3;
     for (int i = 0; i < m1.matrixSize; i++) {
-        m3.matrix[i] = m1.matrix[i] + m2.matrix[i];
+        m3.matrix[i] = m1.matrixArray[i] + m2.matrixArray[i];
     }
     return m3;
 }
@@ -109,7 +110,7 @@ matrix& operator-=(matrix& m1, const matrix& m2) {
 matrix operator-(const matrix& m1) {
     matrix m3;
     for (int i = 0; i < this.matrixSize; i++) {
-        m3.matrix[i] = m1.matrix[i] + m2.matrix[i];
+        m3.matrix[i] = m1.matrixArray[i] + m2.matrixArray[i];
     }
     return m3;
 }

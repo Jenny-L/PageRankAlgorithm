@@ -7,15 +7,22 @@
 using namespace std;
 
 class matrix {
-//private:
-public:
+
+private:
     int sideLength;
     int matrixSize;
-    int *matrix;
-//public:
-    matrix(int input = 1) : sideLength(input), matrixSize(pow(sideLength, sideLength)), matrix(new int[matrixSize]){};
-    matrix(const matrix& m): sideLength(m.sideLength), matrixSize(m.sideLength), matrix(new int[matrixSize]){};
-    ~matrix();
+    int *matrixArray;
+public:
+    //constructor with default parameter
+    matrix(int input = 1) : sideLength(input), matrixSize(pow(sideLength, sideLength)), matrixArray(new int[matrixSize]) {
+        for(int i = 0; i < matrixSize; i++) {
+            this->matrixArray[i] == 0.0;
+        }
+    }
+    //copy constructor
+    matrix(const matrix& m): sideLength(m.sideLength), matrixSize(m.sideLength), matrixArray(new int[matrixSize]){}
+    //deconstructor
+    ~matrix() {delete[] matrixArray;}
     void printmatrix();
     void set_value(int x, int y, int value);
     int get_value(int x, int y);
