@@ -70,29 +70,29 @@ CMakeFiles/lab4.dir/Matrixtester.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab4.dir/Matrixtester.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jennyly/Term3/comp3512lab/lab4/Matrixtester.cpp -o CMakeFiles/lab4.dir/Matrixtester.cpp.s
 
-CMakeFiles/lab4.dir/Matrix.cpp.o: CMakeFiles/lab4.dir/flags.make
-CMakeFiles/lab4.dir/Matrix.cpp.o: ../Matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jennyly/Term3/comp3512lab/lab4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab4.dir/Matrix.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab4.dir/Matrix.cpp.o -c /Users/jennyly/Term3/comp3512lab/lab4/Matrix.cpp
+CMakeFiles/lab4.dir/matrix.cpp.o: CMakeFiles/lab4.dir/flags.make
+CMakeFiles/lab4.dir/matrix.cpp.o: ../matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jennyly/Term3/comp3512lab/lab4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab4.dir/matrix.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab4.dir/matrix.cpp.o -c /Users/jennyly/Term3/comp3512lab/lab4/matrix.cpp
 
-CMakeFiles/lab4.dir/Matrix.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab4.dir/Matrix.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jennyly/Term3/comp3512lab/lab4/Matrix.cpp > CMakeFiles/lab4.dir/Matrix.cpp.i
+CMakeFiles/lab4.dir/matrix.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab4.dir/matrix.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jennyly/Term3/comp3512lab/lab4/matrix.cpp > CMakeFiles/lab4.dir/matrix.cpp.i
 
-CMakeFiles/lab4.dir/Matrix.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab4.dir/Matrix.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jennyly/Term3/comp3512lab/lab4/Matrix.cpp -o CMakeFiles/lab4.dir/Matrix.cpp.s
+CMakeFiles/lab4.dir/matrix.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab4.dir/matrix.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jennyly/Term3/comp3512lab/lab4/matrix.cpp -o CMakeFiles/lab4.dir/matrix.cpp.s
 
 # Object files for target lab4
 lab4_OBJECTS = \
 "CMakeFiles/lab4.dir/Matrixtester.cpp.o" \
-"CMakeFiles/lab4.dir/Matrix.cpp.o"
+"CMakeFiles/lab4.dir/matrix.cpp.o"
 
 # External object files for target lab4
 lab4_EXTERNAL_OBJECTS =
 
 lab4: CMakeFiles/lab4.dir/Matrixtester.cpp.o
-lab4: CMakeFiles/lab4.dir/Matrix.cpp.o
+lab4: CMakeFiles/lab4.dir/matrix.cpp.o
 lab4: CMakeFiles/lab4.dir/build.make
 lab4: CMakeFiles/lab4.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jennyly/Term3/comp3512lab/lab4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab4"

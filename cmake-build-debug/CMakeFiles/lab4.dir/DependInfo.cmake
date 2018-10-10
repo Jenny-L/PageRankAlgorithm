@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/jennyly/Term3/comp3512lab/lab4/Matrix.cpp" "/Users/jennyly/Term3/comp3512lab/lab4/cmake-build-debug/CMakeFiles/lab4.dir/Matrix.cpp.o"
   "/Users/jennyly/Term3/comp3512lab/lab4/Matrixtester.cpp" "/Users/jennyly/Term3/comp3512lab/lab4/cmake-build-debug/CMakeFiles/lab4.dir/Matrixtester.cpp.o"
+  "/Users/jennyly/Term3/comp3512lab/lab4/matrix.cpp" "/Users/jennyly/Term3/comp3512lab/lab4/cmake-build-debug/CMakeFiles/lab4.dir/matrix.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

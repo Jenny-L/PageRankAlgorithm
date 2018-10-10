@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jennyly/Term3/comp3512lab/lab4/Matrixtester.cpp
+iostream
+-
+matrix.hpp
+/Users/jennyly/Term3/comp3512lab/lab4/matrix.hpp
+
+/Users/jennyly/Term3/comp3512lab/lab4/matrix.hpp
+cmath
+-
+ostream
+-
+

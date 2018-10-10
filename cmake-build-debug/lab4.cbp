@@ -82,13 +82,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/Matrix.cpp">
-			<Option target="lab4"/>
-		</Unit>
-		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/Matrix.hpp">
-			<Option target="lab4"/>
-		</Unit>
 		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/Matrixtester.cpp">
+			<Option target="lab4"/>
+		</Unit>
+		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/matrix.cpp">
+			<Option target="lab4"/>
+		</Unit>
+		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/matrix.hpp">
 			<Option target="lab4"/>
 		</Unit>
 		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/CMakeLists.txt">

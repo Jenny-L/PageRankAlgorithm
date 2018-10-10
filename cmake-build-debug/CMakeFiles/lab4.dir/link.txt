@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/lab4.dir/Matrixtester.cpp.o CMakeFiles/lab4.dir/Matrix.cpp.o  -o lab4 
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/lab4.dir/Matrixtester.cpp.o CMakeFiles/lab4.dir/matrix.cpp.o  -o lab4 
