@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lab4.dir/Matrixtester.cpp.o"
+  "CMakeFiles/lab4.dir/main.cpp.o"
   "CMakeFiles/lab4.dir/matrix.cpp.o"
+  "CMakeFiles/lab4.dir/connectivitymatrix.cpp.o"
+  "CMakeFiles/lab4.dir/PageRankAlgorythm.cpp.o"
   "lab4.pdb"
   "lab4"
 )

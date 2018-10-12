@@ -11,7 +11,55 @@ const double TOLERENCE = 0.01;
 
 using namespace std;
 
+matrix::matrix() : sideRow(DEFAULTSIZE), sideColumn(DEFAULTSIZE), matrixSize(DEFAULTSIZE * DEFAULTSIZE), matrixArray(new double[matrixSize]) {
+    this->matrixArray[0] = 0.0;
+}
 
+matrix::matrix(int input) : sideRow(input), sideColumn(input), matrixSize(input * input)  {
+    if (input <= 0) {
+        throw invalid_argument("input side length is a negative integer");
+    } else {
+        matrixArray = new double[matrixSize];
+    }
+    for(int i = 0; i < matrixSize; i++) {
+        this->matrixArray[i] = 0.0;
+    }
+}
+
+matrix::matrix(int r, int c) : sideRow(r), sideColumn(c), matrixSize(r * c)  {
+    if (r <= 0 || c <= 0) {
+        throw invalid_argument("input r or c  is a negative integer");
+    } else {
+        matrixArray = new double[matrixSize];
+    }
+    for(int i = 0; i < matrixSize; i++) {
+        this->matrixArray[i] = 0.0;
+    }
+}
+
+matrix::matrix(vector<double> arrayValues) {
+int arraySize = arrayValues.size();
+int sqrtArraySize = sqrt(arraySize);
+sideRow = sqrtArraySize;
+sideColumn = sqrtArraySize;
+matrixSize = sideRow * sideColumn;
+if (sqrtArraySize * sqrtArraySize != arraySize) {
+throw invalid_argument("input array is not a perfect square");
+} else {
+matrixArray = new double[matrixSize];
+}
+for(int i = 0; i < arraySize; i++) {
+this->matrixArray[i] = arrayValues[i];
+}
+}
+
+matrix::matrix(const matrix& m): sideColumn(m.sideColumn), sideRow(m.sideRow), matrixSize(m.sideColumn * m.sideRow), matrixArray(new double[matrixSize]){
+    for (int i = 0; i < m.matrixSize; i++) {
+        this->matrixArray[i] = m.matrixArray[i];
+    }
+}
+
+matrix::~matrix() {delete[] matrixArray;}
 void matrix::set_value(int x, int y, double value) {
     if (x >= sideRow || x < 0) {
         throw invalid_argument("input x contains an invalid value");
@@ -177,6 +225,10 @@ matrix& matrix::operator*=(matrix &m1) {
 matrix operator*(matrix result, matrix &m) {
     result *= m;
     return result;
+}
+
+double* matrix::get_matrix() {
+    return matrixArray;
 }
 
 

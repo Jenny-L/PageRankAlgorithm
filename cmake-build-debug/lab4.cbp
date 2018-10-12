@@ -82,7 +82,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/Matrixtester.cpp">
+		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/PageRankAlgorythm.cpp">
+			<Option target="lab4"/>
+		</Unit>
+		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/PageRankAlgorythm.hpp">
+			<Option target="lab4"/>
+		</Unit>
+		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/connectivitymatrix.cpp">
+			<Option target="lab4"/>
+		</Unit>
+		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/connectivitymatrix.hpp">
+			<Option target="lab4"/>
+		</Unit>
+		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/main.cpp">
 			<Option target="lab4"/>
 		</Unit>
 		<Unit filename="/Users/jennyly/Term3/comp3512lab/lab4/matrix.cpp">

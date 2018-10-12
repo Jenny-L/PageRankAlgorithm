@@ -123,32 +123,86 @@ lab4/fast:
 	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/build
 .PHONY : lab4/fast
 
-Matrixtester.o: Matrixtester.cpp.o
+PageRankAlgorythm.o: PageRankAlgorythm.cpp.o
 
-.PHONY : Matrixtester.o
+.PHONY : PageRankAlgorythm.o
 
 # target to build an object file
-Matrixtester.cpp.o:
-	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/Matrixtester.cpp.o
-.PHONY : Matrixtester.cpp.o
+PageRankAlgorythm.cpp.o:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/PageRankAlgorythm.cpp.o
+.PHONY : PageRankAlgorythm.cpp.o
 
-Matrixtester.i: Matrixtester.cpp.i
+PageRankAlgorythm.i: PageRankAlgorythm.cpp.i
 
-.PHONY : Matrixtester.i
+.PHONY : PageRankAlgorythm.i
 
 # target to preprocess a source file
-Matrixtester.cpp.i:
-	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/Matrixtester.cpp.i
-.PHONY : Matrixtester.cpp.i
+PageRankAlgorythm.cpp.i:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/PageRankAlgorythm.cpp.i
+.PHONY : PageRankAlgorythm.cpp.i
 
-Matrixtester.s: Matrixtester.cpp.s
+PageRankAlgorythm.s: PageRankAlgorythm.cpp.s
 
-.PHONY : Matrixtester.s
+.PHONY : PageRankAlgorythm.s
 
 # target to generate assembly for a file
-Matrixtester.cpp.s:
-	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/Matrixtester.cpp.s
-.PHONY : Matrixtester.cpp.s
+PageRankAlgorythm.cpp.s:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/PageRankAlgorythm.cpp.s
+.PHONY : PageRankAlgorythm.cpp.s
+
+connectivitymatrix.o: connectivitymatrix.cpp.o
+
+.PHONY : connectivitymatrix.o
+
+# target to build an object file
+connectivitymatrix.cpp.o:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/connectivitymatrix.cpp.o
+.PHONY : connectivitymatrix.cpp.o
+
+connectivitymatrix.i: connectivitymatrix.cpp.i
+
+.PHONY : connectivitymatrix.i
+
+# target to preprocess a source file
+connectivitymatrix.cpp.i:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/connectivitymatrix.cpp.i
+.PHONY : connectivitymatrix.cpp.i
+
+connectivitymatrix.s: connectivitymatrix.cpp.s
+
+.PHONY : connectivitymatrix.s
+
+# target to generate assembly for a file
+connectivitymatrix.cpp.s:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/connectivitymatrix.cpp.s
+.PHONY : connectivitymatrix.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 matrix.o: matrix.cpp.o
 
@@ -186,9 +240,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lab4"
-	@echo "... Matrixtester.o"
-	@echo "... Matrixtester.i"
-	@echo "... Matrixtester.s"
+	@echo "... PageRankAlgorythm.o"
+	@echo "... PageRankAlgorythm.i"
+	@echo "... PageRankAlgorythm.s"
+	@echo "... connectivitymatrix.o"
+	@echo "... connectivitymatrix.i"
+	@echo "... connectivitymatrix.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... matrix.o"
 	@echo "... matrix.i"
 	@echo "... matrix.s"
