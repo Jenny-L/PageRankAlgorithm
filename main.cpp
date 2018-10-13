@@ -1,24 +1,47 @@
 #include <iostream>
 #include <fstream>
+#include <cstring>
+#include <string>
+#include <regex>
 #include "matrix.hpp"
+#include "connectivitymatrix.hpp"
+
 
 using namespace std;
 
 int main() {
 
-
+    regex("[0-1]");
+    smatch value_match;
     //open file for reading
     vector<double> outVector;
     string line;
     ifstream myfile{"connectivity.txt"};
     if (myfile.is_open()) {
         while (getline(myfile,line)) {
-            size_t pos = line.find(" ");
-            string value = line.erase(0, pos);
-            double doubleValue = stod(value);
-            outVector.push_back(doubleValue);
+            for(char&c: line) {
+                if (c == '0' || c == '1') {
+                    double doubleValue = c - '0';
+                    outVector.push_back(doubleValue);
+                }
+            }
         }
     }
+//
+//    for (int i: outVector) {
+//        cout << outVector[i] << endl;
+//    }
+    connectivitymatrix* connectivity= new connectivitymatrix(outVector);
+
+    connectivity->convert_no_link_to_ones();
+
+    cout << *connectivity << endl;
+
+    connectivity->connectivity_to_importance();
+
+    cout << *connectivity;
+    //matrix* mconnectivity = (matrix*) connectivity;
+    //cout << *connectivity;
 
 //    vector<double> list = {5.2, 6.2, 7.2, 8.2};
 //    matrix defaultConstructor;

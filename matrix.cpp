@@ -7,7 +7,7 @@
 #include <iostream>
 #include <iomanip>
 
-const double TOLERENCE = 0.01;
+const double TOLERENCE = 0.001;
 
 using namespace std;
 
@@ -38,19 +38,19 @@ matrix::matrix(int r, int c) : sideRow(r), sideColumn(c), matrixSize(r * c)  {
 }
 
 matrix::matrix(vector<double> arrayValues) {
-int arraySize = arrayValues.size();
-int sqrtArraySize = sqrt(arraySize);
-sideRow = sqrtArraySize;
-sideColumn = sqrtArraySize;
-matrixSize = sideRow * sideColumn;
-if (sqrtArraySize * sqrtArraySize != arraySize) {
-throw invalid_argument("input array is not a perfect square");
-} else {
-matrixArray = new double[matrixSize];
-}
-for(int i = 0; i < arraySize; i++) {
-this->matrixArray[i] = arrayValues[i];
-}
+    int arraySize = arrayValues.size();
+    int sqrtArraySize = sqrt(arraySize);
+    sideRow = sqrtArraySize;
+    sideColumn = sqrtArraySize;
+    matrixSize = sideRow * sideColumn;
+    if (sqrtArraySize * sqrtArraySize != arraySize) {
+    throw invalid_argument("input array is not a perfect square");
+    } else {
+    matrixArray = new double[matrixSize];
+    }
+    for(int i = 0; i < arraySize; i++) {
+    this->matrixArray[i] = arrayValues[i];
+    }
 }
 
 matrix::matrix(const matrix& m): sideColumn(m.sideColumn), sideRow(m.sideRow), matrixSize(m.sideColumn * m.sideRow), matrixArray(new double[matrixSize]){
@@ -60,6 +60,7 @@ matrix::matrix(const matrix& m): sideColumn(m.sideColumn), sideRow(m.sideRow), m
 }
 
 matrix::~matrix() {delete[] matrixArray;}
+
 void matrix::set_value(int x, int y, double value) {
     if (x >= sideRow || x < 0) {
         throw invalid_argument("input x contains an invalid value");
@@ -70,7 +71,7 @@ void matrix::set_value(int x, int y, double value) {
     matrixArray[x * sideRow + y] = value;
 }
 
-int matrix::get_value(int x, int y) {
+const double matrix::get_value(int x, int y) {
     if (x >= sideRow || x < 0) {
         throw invalid_argument("input x contains an invalid value");
     }
@@ -87,13 +88,23 @@ void matrix::clear() {
     }
 }
 
-std::ostream& operator<<(std::ostream& os, const matrix& obj){
-    for(int i = 0; i < obj.matrixSize; i++) {
-        if (i % obj.sideRow == 0) {
-            os << endl;
+std::ostream& operator<<(std::ostream& os, matrix& obj){
+    double objValue;
+    int rowSize = obj.get_row_size();
+    int columnSize = obj.get_column_size();
+    for(int i = 0; i < rowSize; i++) {
+        for(int j = 0; j < columnSize; j++) {
+
+
+
+            objValue = obj.get_value(i, j);
+            os << fixed << setprecision(4) << objValue << " ";
+            if ((j + 1) % rowSize == 0) {
+                os << endl;
+            }
         }
-        os << fixed << setprecision(3) << obj.matrixArray[i] << " ";
     }
+    return os;
 }
 
 bool operator==(const matrix& m1, const matrix& m2) {
@@ -116,7 +127,7 @@ bool operator<(const matrix& m1, const matrix& m2) {
    return (m1.matrixSize < m2.matrixSize);
 }
 
-bool operator >(const matrix& m1, const matrix& m2) {
+bool operator>(const matrix& m1, const matrix& m2) {
     return  (m2.matrixSize < m1.matrixSize);
 }
 
@@ -231,6 +242,28 @@ double* matrix::get_matrix() {
     return matrixArray;
 }
 
+int matrix::get_row_size() const {
+    return sideRow;
+}
+
+int matrix::get_column_size() const {
+    return sideColumn;
+}
+
+vector<double> matrix::row_sum_vector() {
+    vector<double> sum_container;
+    for (int x = 0; x < get_row_size(); x++) {
+
+        int sum = 0;
+        for(int y = 0; y < get_column_size(); y++) {
+            sum += get_value(x, y);
+            //cout << "x = " << x << "y = " << y << endl;
+        }
+        sum_container.push_back(sum);
+        //cout << "column sum " << sum << endl;
+    }
+    return sum_container;
+}
 
 
 

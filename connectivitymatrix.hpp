@@ -11,12 +11,22 @@
 
 using namespace::std;
 
-class connectivitymatrix: public matrix{
-    vector<int> matrixValues;
-    vector<double>
+class connectivitymatrix: public matrix {
+    vector<double> sum_container = this->row_sum_vector();
+
 public:
-    connectivitymatrix(vector<int> &inputValues): matrixValues(inputValues){};
-    vector<double>
+    connectivitymatrix();
+    connectivitymatrix(int);
+    connectivitymatrix(int, int);
+    connectivitymatrix(vector<double>);
+    connectivitymatrix(const matrix&);
+    ~connectivitymatrix();
+
+    friend std::ostream& operator<<(std::ostream& os, connectivitymatrix& obj2);
+
+    connectivitymatrix& convert_no_link_to_ones();
+
+    connectivitymatrix& connectivity_to_importance();
 
 };
 

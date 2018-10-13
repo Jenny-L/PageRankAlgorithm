@@ -6,11 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/Users/jennyly/Term3/comp3512lab/lab4/Matrixtester.cpp
-iostream
+/Users/jennyly/Term3/comp3512lab/lab4/connectivitymatrix.hpp
+fstream
 -
 matrix.hpp
 /Users/jennyly/Term3/comp3512lab/lab4/matrix.hpp
+
+/Users/jennyly/Term3/comp3512lab/lab4/main.cpp
+iostream
+-
+fstream
+-
+cstring
+-
+string
+-
+regex
+-
+matrix.hpp
+/Users/jennyly/Term3/comp3512lab/lab4/matrix.hpp
+connectivitymatrix.hpp
+/Users/jennyly/Term3/comp3512lab/lab4/connectivitymatrix.hpp
 
 /Users/jennyly/Term3/comp3512lab/lab4/matrix.hpp
 cmath

@@ -123,33 +123,6 @@ lab4/fast:
 	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/build
 .PHONY : lab4/fast
 
-PageRankAlgorythm.o: PageRankAlgorythm.cpp.o
-
-.PHONY : PageRankAlgorythm.o
-
-# target to build an object file
-PageRankAlgorythm.cpp.o:
-	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/PageRankAlgorythm.cpp.o
-.PHONY : PageRankAlgorythm.cpp.o
-
-PageRankAlgorythm.i: PageRankAlgorythm.cpp.i
-
-.PHONY : PageRankAlgorythm.i
-
-# target to preprocess a source file
-PageRankAlgorythm.cpp.i:
-	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/PageRankAlgorythm.cpp.i
-.PHONY : PageRankAlgorythm.cpp.i
-
-PageRankAlgorythm.s: PageRankAlgorythm.cpp.s
-
-.PHONY : PageRankAlgorythm.s
-
-# target to generate assembly for a file
-PageRankAlgorythm.cpp.s:
-	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/PageRankAlgorythm.cpp.s
-.PHONY : PageRankAlgorythm.cpp.s
-
 connectivitymatrix.o: connectivitymatrix.cpp.o
 
 .PHONY : connectivitymatrix.o
@@ -240,9 +213,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lab4"
-	@echo "... PageRankAlgorythm.o"
-	@echo "... PageRankAlgorythm.i"
-	@echo "... PageRankAlgorythm.s"
 	@echo "... connectivitymatrix.o"
 	@echo "... connectivitymatrix.i"
 	@echo "... connectivitymatrix.s"

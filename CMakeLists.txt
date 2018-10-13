@@ -3,4 +3,4 @@ project(lab4)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(lab4 main.cpp matrix.hpp matrix.cpp connectivitymatrix.cpp connectivitymatrix.hpp pagerankalgorythm.cpp pagerankalgorythm.hpp)
+add_executable(lab4 main.cpp matrix.hpp matrix.cpp connectivitymatrix.cpp connectivitymatrix.hpp)
