@@ -204,6 +204,33 @@ matrix.cpp.s:
 	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/matrix.cpp.s
 .PHONY : matrix.cpp.s
 
+rankingalgorythm.o: rankingalgorythm.cpp.o
+
+.PHONY : rankingalgorythm.o
+
+# target to build an object file
+rankingalgorythm.cpp.o:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/rankingalgorythm.cpp.o
+.PHONY : rankingalgorythm.cpp.o
+
+rankingalgorythm.i: rankingalgorythm.cpp.i
+
+.PHONY : rankingalgorythm.i
+
+# target to preprocess a source file
+rankingalgorythm.cpp.i:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/rankingalgorythm.cpp.i
+.PHONY : rankingalgorythm.cpp.i
+
+rankingalgorythm.s: rankingalgorythm.cpp.s
+
+.PHONY : rankingalgorythm.s
+
+# target to generate assembly for a file
+rankingalgorythm.cpp.s:
+	$(MAKE) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/rankingalgorythm.cpp.s
+.PHONY : rankingalgorythm.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... matrix.o"
 	@echo "... matrix.i"
 	@echo "... matrix.s"
+	@echo "... rankingalgorythm.o"
+	@echo "... rankingalgorythm.i"
+	@echo "... rankingalgorythm.s"
 .PHONY : help
 
 

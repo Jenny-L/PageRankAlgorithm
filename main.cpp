@@ -32,14 +32,27 @@ int main() {
 //        cout << outVector[i] << endl;
 //    }
     connectivitymatrix* connectivity= new connectivitymatrix(outVector);
+    connectivitymatrix* teleportation = new connectivitymatrix(connectivity->get_row_size());
 
     connectivity->convert_no_link_to_ones();
+    teleportation->convert_no_link_to_ones();
 
     cout << *connectivity << endl;
+    cout << *teleportation << endl;
 
-    connectivity->connectivity_to_importance();
+    matrix importance = connectivity->connectivity_to_importance();
+    matrix teleportationProbability = teleportation->connectivity_to_importance();
+    cout << *connectivity << endl;
+    cout << teleportationProbability << endl;
+    cout << importance << endl;
 
-    cout << *connectivity;
+    matrix transitional = 0.85 * importance + (1 - 0.85) * teleportationProbability;
+
+
+    cout << transitional << endl;
+    //matrix* teleportation= new matrix(outVector);
+
+    //matrixtransition
     //matrix* mconnectivity = (matrix*) connectivity;
     //cout << *connectivity;
 

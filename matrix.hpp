@@ -43,7 +43,7 @@ public:
     ~matrix();
     void clear();
 
-    //friend std::ostream& operator<<(std::ostream& os, matrix& obj);
+    friend std::ostream& operator<<(std::ostream& os, matrix& obj);
 
     friend bool operator==(const matrix& m1, const matrix& m2);
     friend bool operator!=(const matrix& m1, const matrix& m2);
@@ -62,6 +62,7 @@ public:
     friend matrix operator-(matrix m1, const matrix& m2);
     matrix& operator*=(matrix& m1);
     friend matrix operator*(matrix &m1, matrix& m2);
+    friend matrix operator*(double number, matrix& m);
 
     friend void swap(matrix &m1, matrix &m2);
     matrix& operator=(matrix &other);

@@ -233,6 +233,16 @@ matrix& matrix::operator*=(matrix &m1) {
     return *this;
 }
 
+matrix operator*(double probability, matrix &m) {
+    for(int x = 0; x < m.get_row_size(); x++) {
+        for(int y = 0; y < m.get_column_size(); y++) {
+            double newResult = m.get_value(x, y) * probability;
+            m.set_value(x, y, newResult);
+        }
+    }
+    return m;
+}
+
 matrix operator*(matrix result, matrix &m) {
     result *= m;
     return result;
