@@ -66,6 +66,7 @@ public:
 
     friend void swap(matrix &m1, matrix &m2);
     matrix& operator=(matrix &other);
+    //matrix& operator=(matrix &)
 
     vector<double> row_sum_vector();
 

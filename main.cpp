@@ -54,9 +54,37 @@ int main() {
     matrix* rank = new matrix(1, transitional.get_row_size());
     rank->set_all_values_to(1);
 
+    //cout << *rank;
+
+    matrix last_result = *rank;
+    matrix rank2 = *rank;
+
+    operator*(*rank, transitional);
+    cout << *rank << endl;
+    while(true) {
+        if (last_result == *rank) {
+            break;
+        }
+        matrix m = *rank;
+        last_result = m;
+
+        operator*(*rank, transitional);
+        //matrix m = *rank * transitional;
+
+        //*rank = m;
+        //cout << *rank << endl;
+        //cout << transitional << endl;
+    }
+
+    double denominator = rank -> row_sum_vector()[0];
+  cout << denominator;
+    for (int i = 0; i < rank->get_row_size(); i++) {
+        for (int j = 0; j < rank->get_column_size(); j++) {
+            rank->get_value(i,j) / denominator;
+        }
+    }
     cout << *rank;
 
-    //matrix results =
     //matrix* teleportation= new matrix(outVector);
 
     //matrixtransition

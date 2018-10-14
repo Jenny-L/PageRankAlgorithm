@@ -7,7 +7,7 @@
 #include <iostream>
 #include <iomanip>
 
-const double TOLERENCE = 0.001;
+const double TOLERENCE = 0.0001;
 
 using namespace std;
 
@@ -78,7 +78,8 @@ const double matrix::get_value(int x, int y) {
     if (y >= sideColumn || y < 0) {
         throw invalid_argument("input y contains an invalid value");
     }
-    return matrixArray[x * sideRow + y];
+    double value = matrixArray[x * sideRow + y];
+    return value;
 }
 
 
@@ -112,7 +113,7 @@ bool operator==(const matrix& m1, const matrix& m2) {
         return false;
     }
     for (int i = 0; i < m1.matrixSize; i++) {
-        if (!(m1.matrixArray[i] < m2.matrixArray[i] + TOLERENCE && m1.matrixArray[i] > m2.matrixArray[i] - TOLERENCE)){
+        if ((abs(m1.matrixArray[i] - m2.matrixArray[i])) > TOLERENCE){
             return false;
         }
     }
@@ -212,24 +213,28 @@ void swap(matrix &m1, matrix &m2) {
     swap(m1.sideColumn, m2.sideColumn);
     swap(m1.sideRow, m2.sideRow);
     swap(m1.matrixArray, m2.matrixArray);
+    swap(m1.matrixSize, m2.matrixSize);
 }
 
 matrix& matrix::operator*=(matrix &m1) {
     int nRows = this->sideRow;
     int nColumn = m1.sideColumn;
-    int commonSize = this->sideRow;
+    int commonSize = m1.sideColumn;
+    matrix* result_matrix = new matrix(nRows, nColumn);
     if (this->sideColumn != m1.sideRow ) {
         throw invalid_argument("column length of matrix 1 does != row length of matrix 2");
     }
     for(int i = 0; i < nRows; i++) {
         for(int j = 0; j < nColumn; j++) {
-            int product = 0;
+            double product = 0.0;
             for(int k = 0; k < commonSize; k++) {
-                product += this->get_value(i, k) * m1.get_value(k, j);
+                product = product + (this->get_value(i, k) * m1.get_value(j, k));
             }
-            this->set_value(i, j, product);
+            product = product + 0.0;
+            result_matrix->set_value(i, j, product);
         }
     }
+    *this = *result_matrix;
     return *this;
 }
 
@@ -243,7 +248,7 @@ matrix operator*(double probability, matrix &m) {
     return m;
 }
 
-matrix operator*(matrix& result, matrix &m) {
+matrix operator*(matrix &result, matrix &m) {
     result *= m;
     return result;
 }
@@ -262,10 +267,10 @@ int matrix::get_column_size() const {
 
 vector<double> matrix::row_sum_vector() {
     vector<double> sum_container;
-    for (int x = 0; x < get_row_size(); x++) {
+    for (int x = 0; x < this->get_row_size(); x++) {
 
         int sum = 0;
-        for(int y = 0; y < get_column_size(); y++) {
+        for(int y = 0; y < this->get_column_size(); y++) {
             sum += get_value(x, y);
             //cout << "x = " << x << "y = " << y << endl;
         }
