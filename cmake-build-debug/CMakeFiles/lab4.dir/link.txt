@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/lab4.dir/main.cpp.o CMakeFiles/lab4.dir/matrix.cpp.o CMakeFiles/lab4.dir/connectivitymatrix.cpp.o CMakeFiles/lab4.dir/rankingalgorythm.cpp.o  -o lab4 
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/lab4.dir/main.cpp.o CMakeFiles/lab4.dir/matrix.cpp.o CMakeFiles/lab4.dir/connectivitymatrix.cpp.o  -o lab4 

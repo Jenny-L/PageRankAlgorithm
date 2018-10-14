@@ -1,12 +1,23 @@
+/**
+ * main.cpp
+ * Performs search algorithm
+ *
+ * @author Jenny Ly
+ * @version 2018-10-05
+ */
+
 #include <iostream>
 #include <fstream>
 #include <cstring>
 #include <string>
 #include <regex>
+#include <iomanip>
 #include "matrix.hpp"
 #include "connectivitymatrix.hpp"
 
-
+const double PROBABILITY_CLICKS = 0.85;
+const double PROBABILITY_TELEPORT = 0.15;
+const int ONE = 1;
 using namespace std;
 
 int main() {
@@ -27,101 +38,36 @@ int main() {
             }
         }
     }
-//
-//    for (int i: outVector) {
-//        cout << outVector[i] << endl;
-//    }
+
     connectivitymatrix* connectivity= new connectivitymatrix(outVector);
     connectivitymatrix* teleportation = new connectivitymatrix(connectivity->get_row_size());
-
-    connectivity->convert_no_link_to_ones();
-    teleportation->convert_no_link_to_ones();
-
-    cout << *connectivity << endl;
-    cout << *teleportation << endl;
+    ++*connectivity;
+    ++*teleportation;
 
     matrix importance = connectivity->connectivity_to_importance();
-    matrix teleportationProbability = teleportation->connectivity_to_importance();
-    cout << *connectivity << endl;
-    cout << teleportationProbability << endl;
-    cout << importance << endl;
+    matrix teleportation_probability = teleportation->connectivity_to_importance();
 
-    matrix transitional = 0.85 * importance + (1 - 0.85) * teleportationProbability;
+    matrix transitional = PROBABILITY_CLICKS * importance + PROBABILITY_TELEPORT * teleportation_probability;
 
-
-    cout << transitional << endl;
-
-    matrix* rank = new matrix(1, transitional.get_row_size());
-    rank->set_all_values_to(1);
-
-    //cout << *rank;
+    matrix* rank = new matrix(ONE, transitional.get_row_size());
+    ++*rank;
 
     matrix last_result = *rank;
-    matrix rank2 = *rank;
+   *rank * transitional;
 
-    operator*(*rank, transitional);
-    cout << *rank << endl;
     while(true) {
         if (last_result == *rank) {
             break;
         }
         matrix m = *rank;
         last_result = m;
-
-        operator*(*rank, transitional);
-        //matrix m = *rank * transitional;
-
-        //*rank = m;
-        //cout << *rank << endl;
-        //cout << transitional << endl;
+        *rank * transitional;
     }
 
-    double denominator = rank -> row_sum_vector()[0];
-  cout << denominator;
-    for (int i = 0; i < rank->get_row_size(); i++) {
-        for (int j = 0; j < rank->get_column_size(); j++) {
-            rank->get_value(i,j) / denominator;
-        }
-    }
-    cout << *rank;
+    rank->convert_markov_to_percent();
+    connectivitymatrix* m = (connectivitymatrix*) rank;
 
-    //matrix* teleportation= new matrix(outVector);
+    cout << *m;
 
-    //matrixtransition
-    //matrix* mconnectivity = (matrix*) connectivity;
-    //cout << *connectivity;
-
-//    vector<double> list = {5.2, 6.2, 7.2, 8.2};
-//    matrix defaultConstructor;
-//    matrix oneParam1(2);
-//    matrix arrayParam(list);
-//    matrix twoParam1(2 ,2);
-//    matrix twoParam(3, 2);
-//
-//
-//    operator<<(cout, arrayParam);
-//
-//
-//    operator<<(cout, twoParam);
-//
-//    defaultConstructor.set_value(0,0, 2.3);
-//    operator<<(cout, defaultConstructor);
-//
-//    oneParam1.set_value(0, 0, 1.1);
-//    oneParam1.set_value(0, 1, 2.2);
-//    oneParam1.set_value(1, 0, 3.3);
-//    oneParam1.set_value(1, 1, 4.4);
-//    operator<<(cout, oneParam1);
-//
-//    twoParam1.set_value(0, 0, 5.1);
-//    twoParam1.set_value(0, 1, 6.1);
-//    twoParam1.set_value(1, 0, 7.1);
-//    twoParam1.set_value(1, 1, 8.1);
-//    operator<<(cout, twoParam1);
-//    cout << endl;
-//    //oneParam1.operator+=(twoParam1);
-//    operator<<(cout, oneParam1);
-
-    //oneParam1.operator+=(twoParam);
     return 0;
 }

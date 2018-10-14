@@ -1,6 +1,12 @@
-//
-// Created by Jenny Ly on 2018-10-10.
-//
+/**
+ * connectivitymatrix.cpp
+ * This class uses a one dimensional array and treats it as a 2-D array.
+ * The matrix contains getters and setters to modify the array along with
+ * overriden uniary and binary operators.
+ *
+ * @author Jenny Ly
+ * @version 2018-10-05
+ */
 
 #ifndef LAB4_CONNECTIVITYMATRIX_HPP
 #define LAB4_CONNECTIVITYMATRIX_HPP
@@ -21,13 +27,9 @@ public:
     connectivitymatrix(vector<double>);
     connectivitymatrix(const matrix&);
     ~connectivitymatrix();
-
+    connectivitymatrix& operator++();
     friend std::ostream& operator<<(std::ostream& os, connectivitymatrix& obj2);
-
-    connectivitymatrix& convert_no_link_to_ones();
-
     connectivitymatrix& connectivity_to_importance();
-
 };
 
 

@@ -12,6 +12,3 @@ CMakeFiles/lab4.dir/main.cpp.o: ../matrix.hpp
 CMakeFiles/lab4.dir/matrix.cpp.o: ../matrix.cpp
 CMakeFiles/lab4.dir/matrix.cpp.o: ../matrix.hpp
 
-CMakeFiles/lab4.dir/rankingalgorythm.cpp.o: ../rankingalgorythm.cpp
-CMakeFiles/lab4.dir/rankingalgorythm.cpp.o: ../rankingalgorythm.hpp
-
