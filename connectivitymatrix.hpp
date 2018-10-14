@@ -1,5 +1,5 @@
 /**
- * connectivitymatrix.cpp
+ * connectivitymatrix.hpp
  * This class uses a one dimensional array and treats it as a 2-D array.
  * The matrix contains getters and setters to modify the array along with
  * overriden uniary and binary operators.
