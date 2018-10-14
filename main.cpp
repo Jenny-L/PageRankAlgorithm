@@ -1,5 +1,6 @@
 /**
  * main.cpp
+ * Opens file
  * Performs search algorithm
  *
  * @author Jenny Ly
