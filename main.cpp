@@ -50,6 +50,13 @@ int main() {
 
 
     cout << transitional << endl;
+
+    matrix* rank = new matrix(1, transitional.get_row_size());
+    rank->set_all_values_to(1);
+
+    cout << *rank;
+
+    //matrix results =
     //matrix* teleportation= new matrix(outVector);
 
     //matrixtransition

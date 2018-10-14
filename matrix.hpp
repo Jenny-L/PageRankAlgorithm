@@ -69,7 +69,7 @@ public:
 
     vector<double> row_sum_vector();
 
-
+    matrix& set_all_values_to(double value);
 };
 
 

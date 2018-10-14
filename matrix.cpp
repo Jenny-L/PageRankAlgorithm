@@ -208,10 +208,10 @@ matrix& matrix::operator=(matrix &m) {
 }
 
 void swap(matrix &m1, matrix &m2) {
-    matrix temp;
-    temp = m1;
-    m1 = m2;
-    m2 = temp;
+    using std::swap;
+    swap(m1.sideColumn, m2.sideColumn);
+    swap(m1.sideRow, m2.sideRow);
+    swap(m1.matrixArray, m2.matrixArray);
 }
 
 matrix& matrix::operator*=(matrix &m1) {
@@ -243,7 +243,7 @@ matrix operator*(double probability, matrix &m) {
     return m;
 }
 
-matrix operator*(matrix result, matrix &m) {
+matrix operator*(matrix& result, matrix &m) {
     result *= m;
     return result;
 }
@@ -273,6 +273,14 @@ vector<double> matrix::row_sum_vector() {
         //cout << "column sum " << sum << endl;
     }
     return sum_container;
+}
+
+matrix& matrix::set_all_values_to(double value) {
+    for(int x = 0; x < this->get_row_size(); x++) {
+        for(int y = 0; y < this->get_column_size(); y++) {
+            this->set_value(x , y, value);
+        }
+    }
 }
 
 
